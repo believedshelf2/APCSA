@@ -1,0 +1,104 @@
+import java.util.Scanner;
+public class rocket {
+    public static void main(String[] args){
+        Scanner scnr = new Scanner(System.in);
+        System.out.print("Size of Rocket: ");
+        int size = scnr.nextInt();
+        drawCone(size);
+        drawDivider(size);
+        System.out.print("\n");
+        drawTopBody(size);
+        drawBottomHalf(size);
+        drawDivider(size);
+        System.out.print("\n");
+        drawBottomHalf(size);
+        drawTopBody(size);
+        drawDivider(size);
+        System.out.print("\n");
+        drawCone(size);
+        System.out.print("\n");
+
+
+    }
+    //produces the top cone
+    public static void drawCone(int size){
+        //makes lines
+        for(int line = 1; line <= (size * 2 - 1); line++){
+        //makes spaces
+        for(int space = 1; space <= (size * 2 - line); space++){
+            System.out.print(" ");
+        }
+        //makes /
+        for(int slash = 1; slash <= line; slash++){
+            System.out.print("/");
+        }
+        //makes *
+        System.out.print("**");
+
+        //makes \
+        for(int slash = 1; slash <= line; slash++){
+            System.out.print("\\");
+        }
+        //makes spaces
+        for(int space = 1; space <= (size * 2 - line); space++){
+            System.out.print(" ");
+        }
+        System.out.print("\n");
+        }
+    }
+
+    public static void drawDivider(int size) {
+		//produces dividing line
+		System.out.print("+");
+		for (int i = 1; i <= size * 2; i++) {
+			System.out.print("=*");
+		}
+		System.out.print("+");
+    }
+    //produces the top half of the body
+        public static void drawTopBody(int size) {
+		for (int line = 1; line <= size; line++) {
+			System.out.print("|");
+			for (int repeat = 1; repeat <= 2; repeat++) {
+				for (int dots = 1; dots <= size - line; dots++) {
+					System.out.print(".");
+				}
+				for (int points = 1; points <= line; points++) {
+					System.out.print("/\\");
+				}
+				for (int dots = 1; dots <= size - line; dots++) {
+					System.out.print(".");
+				}
+			}
+			System.out.println("|");
+		}
+	}
+
+	public static void drawBottomHalf(int size) {
+		//makes line
+		for (int line = size; line >= 1; line--) {
+			System.out.print("|");
+			
+			//repeats nesting twice
+			for (int repeat = 1; repeat <= 2; repeat++) {
+				
+				//makes dots
+				for (int dots = 1; dots <= size - line; dots++) {
+					System.out.print(".");
+				}
+				
+				//makes \/
+				for (int points = 1; points <= line; points++) {
+					System.out.print("\\/");
+				}
+				
+				//makes dots in outside
+				for (int dots = 1; dots <= size - line; dots++) {
+					System.out.print(".");
+				}
+			}
+			System.out.println("|");
+		}
+    }
+
+}
